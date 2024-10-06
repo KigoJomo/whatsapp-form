@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# WhatsApp Form Submission
+
+This is a simple Next.js application that allows users to submit their details via a form. Upon submission, a message containing the user's information is sent to a specified WhatsApp number.
+
+## Features
+
+- Collects user details: Name, Email, Age, and Location.
+- Sends a formatted message to WhatsApp.
+- Opens WhatsApp in a new tab for the user to send the message.
+
+## Prerequisites
+
+- Node.js installed on your machine.
+- A WhatsApp account to receive messages.
+- An environment variable for your WhatsApp number.
 
 ## Getting Started
 
-First, run the development server:
+Follow these steps to set up and run the application locally.
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/KigoJomo/whatsapp-form.git
+cd whatsapp-form
+```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Set Environment Variables
+
+Create a `.env.local` file in the root of the project and add your WhatsApp number in international format:
+
+```
+WHATSAPP_NUMBER=YOUR_WHATSAPP_NUMBER
+```
+
+### 4. Run the Application
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Navigate to [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+### 5. Submit the Form
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Fill out the form with your details and click "Submit." WhatsApp will open in a new tab with the message prepared for you.
 
-## Learn More
+## Code Structure
 
-To learn more about Next.js, take a look at the following resources:
+- **/components/Form.js**: Contains the form component where users input their details.
+- **/app/api/submit/route.js**: API route that processes the form submission, constructs the WhatsApp message URL, and returns it to the client.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Deployment
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+You can deploy this application on platforms like Vercel for production use. Follow the platform's documentation for deployment instructions.
 
-## Deploy on Vercel
+## Acknowledgments
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- [Next.js](https://nextjs.org/) - The React framework used for this application.
+- [WhatsApp API](https://api.whatsapp.com/) - Used to send messages.
