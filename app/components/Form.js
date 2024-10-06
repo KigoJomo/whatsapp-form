@@ -5,9 +5,9 @@ import { useState } from 'react';
 import axios from 'axios';
 
 const InputWrapper = ({ label, type, value, onChange, required }) => (
-  <div className="w-full flex flex-col mb-4">
-    <label className="mb-2">{label}</label>
-    <input type={type} value={value} onChange={onChange} required={required} className="p-2 border border-white border-opacity-25 bg-transparent outline-transparent focus:outline-0 transition-all duration-300 focus:border-opacity-80" />
+  <div className="w-full flex flex-col gap-2">
+    <label className="opacity-50">{label}</label>
+    <input type={type} value={value} onChange={onChange} required={required} className="p-2 rounded border border-white border-opacity-25 bg-transparent outline-transparent focus:outline-0 transition-all duration-300 focus:border-opacity-80" />
   </div>
 );
 
@@ -38,12 +38,13 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full md:w-[30vw] px-12 md:px-0 flex flex-col items-center justify-center">
+    <form onSubmit={handleSubmit} className="w-full md:w-[30vw] px-12 md:px-0 flex flex-col items-center justify-center gap-6">
+      <h2 className="text-3xl text-center">Fill in your details below</h2>
       <InputWrapper label="Name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
       <InputWrapper label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       <InputWrapper label="Age" type="text" value={age} onChange={(e) => setAge(e.target.value)} required />
       <InputWrapper label="Location" type="text" value={location} onChange={(e) => setLocation(e.target.value)} required />
-      <button type="submit" disabled={loading} className="w-full bg-foreground text-background py-2 mt-4">{loading ? 'Sending...' : 'Submit'}</button>
+      <button type="submit" disabled={loading} className="w-full bg-foreground rounded text-background py-2 mt-4">{loading ? 'Sending...' : 'Submit'}</button>
       {success && <p>Message sent successfully!</p>}
     </form>
   );

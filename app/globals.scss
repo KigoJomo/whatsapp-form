@@ -1,7 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Italiana&family=Sora:wght@100..800&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Sora:wght@100..800&display=swap');
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -13,6 +15,7 @@
     --foreground: #ededed;
   }
 }
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -24,12 +27,13 @@ body {
     text-wrap: balance;
   }
 }
+
 h1, h2, h3, h4, h5, h6 {
   font-family: "Italiana", sans-serif;
 }
 
 .gradient-background {
-  background: linear-gradient(213deg, #5d5d5d, #000000, #5b5b5b);
+  background: linear-gradient(213deg,#5d5d5d,#000000,#5b5b5b);
   background-size: 180% 180%;
   animation: gradient-animation 15s ease infinite;
 }
