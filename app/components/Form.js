@@ -29,7 +29,7 @@ const Form = () => {
       // Open WhatsApp URL in a new tab
       window.open(response.data.url, '_blank');
 
-      setSuccess(true);
+      setSuccess(true); 
     } catch (error) {
       console.error('Error sending data:', error);
     } finally {
@@ -38,7 +38,7 @@ const Form = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="w-full md:w-[30vw] flex flex-col items-center justify-center">
+    <form onSubmit={handleSubmit} className="w-full md:w-[30vw] px-12 md:px-0 flex flex-col items-center justify-center">
       <InputWrapper label="Name" type="text" value={name} onChange={(e) => setName(e.target.value)} required />
       <InputWrapper label="Email" type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
       <InputWrapper label="Age" type="text" value={age} onChange={(e) => setAge(e.target.value)} required />
