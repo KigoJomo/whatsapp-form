@@ -14,7 +14,10 @@ export async function POST(req) {
     }
 
     // Construct the WhatsApp URL
-    const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+    // const url = `https://api.whatsapp.com/send?phone=${whatsappNumber}&text=${encodeURIComponent(message)}`;
+
+    // Construct the WhatsApp URL using wa.me
+    const url = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
     
     // Return the URL for the client to open
     return new Response(JSON.stringify({ status: 'success', url }), { status: 200 });
