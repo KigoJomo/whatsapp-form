@@ -2,7 +2,6 @@
 "use client"
 
 import {useState} from 'react';
-import axios from 'axios';
 import InputWrapper from './InputWrapper';
 
 const Form = () => {
@@ -30,7 +29,13 @@ const Form = () => {
 
         try {
             // Send data to your backend
-            const response = await axios.post('/api/submit', {name, email, age, location});
+            const response = await fetch('/api/submit', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({name, email, age, location}),
+            });
 
             // Open WhatsApp URL in a new tab
             window.open(response.data.url, '_blank');
