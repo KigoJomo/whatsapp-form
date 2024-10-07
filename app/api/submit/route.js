@@ -1,5 +1,4 @@
 // app/api/submit/route.js
-import axios from 'axios'
 
 export async function POST(req) {
   try {
