@@ -3,13 +3,7 @@
 
 import { useState } from 'react';
 import axios from 'axios';
-
-const InputWrapper = ({ label, type, value, onChange, required }) => (
-  <div className="w-full flex flex-col gap-2">
-    <label className="opacity-50">{label}</label>
-    <input type={type} value={value} onChange={onChange} required={required} className="p-2 rounded border border-white border-opacity-25 bg-transparent outline-transparent focus:outline-0 transition-all duration-300 focus:border-opacity-80" />
-  </div>
-);
+import InputWrapper from './InputWrapper';
 
 const Form = () => {
   const [name, setName] = useState('');
@@ -22,6 +16,7 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
     try {
       // Send data to your backend
       const response = await axios.post('/api/submit', { name, email, age, location });
