@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={"w-full"} style={{ height: "100dvh" }}>
       <body className="h-screen gradient-background flex flex-col items-center justify-center">
         {children}
       </body>
