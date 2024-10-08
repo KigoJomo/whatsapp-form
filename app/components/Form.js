@@ -37,10 +37,21 @@ const Form = () => {
                 body: JSON.stringify({name, email, age, location}),
             });
 
-            // Open WhatsApp URL in a new tab
-            window.open(response.data.url, '_blank');
+            // Check if the response is OK (status code 200-299)
+            if(!response.ok){
+                throw new Error('Failed to submit the form');
+            }
 
-            setSuccess(true);
+            // Parse the response data as JSON
+            const data = await response.json();
+
+            // open whatsapp url in a new tab if the URL is present
+            if(data.url){
+                window.open(data.url, '_blank');
+                setSuccess(true)
+            } else{
+                throw new Error('Whatsapp URL not provided')
+            }
         } catch (err) {
             console.error('Error sending data:', err);
             setError('Failed to submit the form. Please try again later.');
